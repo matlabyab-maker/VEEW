@@ -1,0 +1,5 @@
+نسخه 0.2.181
+
+- رفع خطای کامپایل Kotlin ناشی از ارجاع به secondCutButton و autoCropButton که از activity_main.xml حذف شده بودند.
+- اتصال شنونده‌های این دو View حذف‌شده از MainActivity.kt برداشته شد؛ سایر منطق‌ها و رابط کاربری بدون تغییر باقی ماندند.
+- فایل workflow/YAML تغییر داده نشده است.

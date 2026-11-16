@@ -629,17 +629,8 @@ class MainActivity : Activity() {
                 statusText.text = "Cut ثبت شد: ${formatTime(at)}؛ با هر بار زدن، برش دیگری در زمان فعلی پخش ثبت می‌شود"
             } else Toast.makeText(this, "در این زمان برشی ثبت شده است", Toast.LENGTH_SHORT).show()
         }
-        findViewById<Button>(R.id.secondCutButton).setOnClickListener { findViewById<Button>(R.id.splitTimelineButton).performClick() }
-        findViewById<Button>(R.id.autoCropButton).setOnClickListener {
-            if (selectedUri == null) {
-                Toast.makeText(this, "ابتدا ویدیو را انتخاب کنید؛ سپس Auto Crop را بزنید", Toast.LENGTH_LONG).show()
-                return@setOnClickListener
-            }
-            autoCropMode = true
-            if (!freeCropMode) toggleFreeCropMode()
-            findViewById<Button>(R.id.autoCropButton).text = "Auto Crop ✓"
-            statusText.text = "Auto Crop فعال شد: محدودهٔ تصویر را روی پلیر با دستگیره‌ها مشخص کنید و «ثبت محدوده» را بزنید؛ حاشیهٔ ایمن خودکار اعمال می‌شود."
-        }
+        // secondCutButton and autoCropButton were removed from the visible layout;
+        // do not bind listeners to views that no longer exist.
         findViewById<Button>(R.id.deleteTimelineSegmentButton).setOnClickListener {
             val range = selectedTimelineRange
             if (range == null) { Toast.makeText(this, "ابتدا یک قطعه از نوار زمان را انتخاب کنید", Toast.LENGTH_SHORT).show(); return@setOnClickListener }
