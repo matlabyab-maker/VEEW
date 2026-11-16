@@ -3,7 +3,7 @@
 - **Repository / Gradle root:** `VEEW`
 - **Android app label:** `EVeditor`
 - **Application ID / namespace:** `com.evc.app` (preserved to retain the existing app identity)
-- **Version:** `0.2.179` (`versionCode 379`)
+- **Version:** `0.2.180` (`versionCode 379`)
 - **Minimum Android:** API 24
 - **Target / Compile SDK:** 35
 - **Target ABI:** `armeabi-v7a` (32-bit ARM)
@@ -15,7 +15,7 @@ The workflow is `.github/workflows/android.yml`. It follows the previous FVW wor
 - Runs on pushes to every branch (`branches: ["**"]`).
 - Supports pull requests and manual runs (`workflow_dispatch`).
 - Uses JDK 17, Android SDK 35 / Build Tools 35.0.0, and Gradle 8.9.
-- Builds the debug APK and uploads it as `VEEW-0.2.179-ARM32-Dynamic-Storyboard-debug-apk`.
+- Builds the debug APK and uploads it as `VEEW-0.2.180-ARM32-Dynamic-Storyboard-debug-apk`.
 
 This ZIP is prepared as a **fresh repository**: the old `.git` directory and old GitHub remote have been removed. Open the extracted `VEEW` folder as the local repository in MGit, initialize it, stage all files (including hidden `.github`), and create the first commit. Then create an empty GitHub repository named exactly `VEEW`, add that repository as the remote in MGit, and push the branch.
 
