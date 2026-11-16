@@ -1,0 +1,46 @@
+راهنمای ساخت مخزن تازه VEEW با GitHub و MGit
+
+این بسته از نسخه FVW 0.2.178 ادامه یافته و برای مخزن مستقل VEEW آماده شده است.
+
+۱) آماده‌سازی فایل‌ها
+- فایل VEEW-0.2.179.zip را استخراج کنید.
+- پوشه VEEW را به‌عنوان ریشه پروژه و مخزن محلی در MGit انتخاب کنید.
+- فایل‌های settings.gradle.kts و build.gradle.kts و پوشه‌های app و .github باید مستقیماً داخل پوشه VEEW باشند.
+- مسیر فایل ساخت خودکار باید دقیقاً .github/workflows/android.yml باشد.
+- پوشه .git نسخه قبلی عمداً حذف شده است؛ مخزن محلی جدید را در MGit ایجاد کنید.
+
+۲) ساخت مخزن در GitHub
+- در GitHub یک Repository خالی با نام دقیق VEEW بسازید.
+- هنگام ساخت مخزن، گزینه افزودن README یا فایل‌های اولیه را فعال نکنید؛ مخزن خالی باشد.
+- آدرس HTTPS مخزن تازه VEEW را در MGit به‌عنوان Remote اضافه کنید.
+
+۳) اولین Commit و Push در MGit
+- پوشه VEEW را به‌عنوان مخزن محلی باز کنید.
+- همه فایل‌ها، از جمله فایل‌ها و پوشه مخفی مانند .github، را Stage کنید.
+- اولین Commit را با پیام Initial VEEW project ثبت کنید.
+- شاخه محلی را به مخزن GitHub تازه Push کنید.
+
+۴) بررسی GitHub Actions
+- پس از Push، زبانه Actions را باز کنید.
+- Workflow با نام VEEW Android Build باید اجرا شود.
+- Workflow با Push به همه شاخه‌ها فعال می‌شود؛ محدود به main یا master نیست.
+- اجرای دستی نیز از طریق workflow_dispatch امکان‌پذیر است.
+- خروجی APK در Artifact با نام VEEW-0.2.179-ARM32-Dynamic-Storyboard-debug-apk قرار می‌گیرد.
+
+۵) تنظیمات فنی حفظ‌شده
+- نام پروژه Gradle: VEEW
+- نام نمایشی برنامه: EVeditor
+- applicationId و namespace: com.evc.app (برای حفظ هویت نصب قبلی تغییر نکرده‌اند)
+- نسخه: 0.2.179، versionCode: 379
+- حداقل Android: API 24
+- ABI: فقط armeabi-v7a (ARM 32-bit)
+- Java: 17، Android SDK / Build Tools: 35، Gradle: 8.9
+
+۶) اگر Commit یا Actions اجرا نشد
+- مطمئن شوید فایل android.yml در مسیر دقیق .github/workflows/android.yml قرار دارد.
+- مطمئن شوید فایل مخفی .github نیز Stage و Commit شده است.
+- پس از Push، شاخه‌ای را که واقعاً Push کرده‌اید در GitHub بررسی کنید.
+- اگر مخزن تازه ساخته‌اید، مطمئن شوید Remote در MGit به همان مخزن VEEW اشاره می‌کند.
+- برای اجرای دوباره بدون Commit جدید، از Actions گزینه Run workflow استفاده کنید.
+
+توجه: فایل YAML بر اساس الگوی پروژه قبلی حفظ شده است: Push روی همه شاخه‌ها، Pull Request روی همه شاخه‌ها و اجرای دستی. تنظیمات اصلی ساخت شامل JDK 17، Android SDK 35 و Gradle 8.9 است.
